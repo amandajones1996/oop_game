@@ -73,17 +73,21 @@ class Game {
         // display game over message and win or lose screen 
         const gameOverMessage = document.querySelector('#game-over-message');
 
+        // remove all class names from overlay
+        overlay.classList.remove('start', 'win', 'lose')
+
         if (this.checkForWin()) {
-            overlay.classList.remove('start');
             overlay.classList.add('win');
             gameOverMessage.textContent = 'Congratulations! You won!';
         } else {
-            overlay.classList.remove('start');
             overlay.classList.add('lose');
             gameOverMessage.textContent = 'Sorry, better luck next time!';
         }
-
+        setTimeout(() => {
+        overlay.classList.remove('win', 'lose')
+        overlay.classList.add('start');
         this.resetGameboard();
+        }, 2000);
     }
 
     // Function to reset the gameboard
@@ -107,6 +111,7 @@ class Game {
 
         // Reset missed guesses
         game.missed = 0;
+        // overlay.classList.add('start');
     }
 
 }
