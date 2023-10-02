@@ -83,11 +83,9 @@ class Game {
             overlay.classList.add('lose');
             gameOverMessage.textContent = 'Sorry, better luck next time!';
         }
-        setTimeout(() => {
-        overlay.classList.remove('win', 'lose')
-        overlay.classList.add('start');
+
         this.resetGameboard();
-        }, 2000);
+    
     }
 
     // Function to reset the gameboard
