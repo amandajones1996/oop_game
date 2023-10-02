@@ -2,12 +2,15 @@
  * Project 4 - OOP Game App
  * app.js */
 
-// Create a new instance of the Game class
-const game = new Game();
 
 // Event listener for the "Start Game" button
 document.querySelector('#btn__reset').addEventListener('click', () => {
     // Start a new game
+    overlay.classList.remove('win');
+    overlay.classList.remove('lose')
+    overlay.classList.add('start');
+    // Create a new instance of the Game class
+    const game = new Game();
     game.startGame();
 });
 

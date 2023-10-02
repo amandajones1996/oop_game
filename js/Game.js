@@ -3,7 +3,7 @@
  * Game.js */
 const overlay = document.querySelector('#overlay');
 class Game {
-    constructor(phrases){
+    constructor(){
         this.missed = 0; 
         this.phrases = [
             new Phrase("Pumpkin spice latte"),
@@ -39,7 +39,7 @@ class Game {
             this.activePhrase.showMatchedLetter(letter);
             // check if all letters guessed
             if(this.checkForWin()){
-                this.gameOver(true);
+                this.gameOver();
             }
         
         } else {
@@ -57,7 +57,7 @@ class Game {
 
         // check if max amount of guesses attempted
         if(this.missed === 5){
-            this.gameOver(false);
+            this.gameOver();
         }
     }
 
